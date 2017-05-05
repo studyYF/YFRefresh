@@ -46,6 +46,9 @@ class YFRefreshHeader: UIView {
     
     var scrollView: UIScrollView? = nil
     
+    var fastLayer: ArrowLayer?
+    
+    
     ///结束刷新
     public func endRefreshing() {
         state = .Normal
@@ -154,9 +157,14 @@ class YFRefreshHeader: UIView {
 
 extension YFRefreshHeader {
     fileprivate func setUI() {
+        let width = UIScreen.main.bounds.size.width
+        let height:CGFloat = -64
+        fastLayer = ArrowLayer(frame: .init(x: width/2 - 14, y: height/2 - 14, width: 28, height: 28))
+        layer.addSublayer(fastLayer!)
+        let circleLayer = CircleLayer(frame: .init(x: width/2 - 14, y: height/2 - 14, width: 28, height: 28))
+        layer.addSublayer(circleLayer)
         
-        
-        addSubview(label!)
+//        addSubview(label!)
     }
     fileprivate func setState(_ state: YFRefreshHeaderState) {
         switch state {
@@ -165,6 +173,7 @@ extension YFRefreshHeader {
         case .Refreshing:
             label?.text = "正在刷新..."
             scrollView?.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
+            fastLayer?.startAnimation()
             actionBlock!()
         case .Pulling:
             label?.text = "正在下拉"
