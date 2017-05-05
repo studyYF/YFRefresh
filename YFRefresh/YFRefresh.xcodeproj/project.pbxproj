@@ -19,6 +19,7 @@
 		3C0B08C41EB30FF200C1A713 /* YFRefresh+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B08C31EB30FF200C1A713 /* YFRefresh+UIScrollView.swift */; };
 		3C18D5841EB857D600B79F3C /* UIView+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18D5831EB857D600B79F3C /* UIView+Size.swift */; };
 		3C18D5861EB85BF400B79F3C /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18D5851EB85BF400B79F3C /* Size.swift */; };
+		3C2B49481EBC5D9700103963 /* BaseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B49471EBC5D9700103963 /* BaseLayer.swift */; };
 		3C43D73C1EBB09DB00D2B3C8 /* ArrowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C43D73B1EBB09DB00D2B3C8 /* ArrowLayer.swift */; };
 		3C7CD66A1EBB29DB00F3AB21 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CD6691EBB29DB00F3AB21 /* CircleLayer.swift */; };
 		3C7CD66C1EBC4EE200F3AB21 /* CheckLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7CD66B1EBC4EE200F3AB21 /* CheckLayer.swift */; };
@@ -60,6 +61,7 @@
 		3C0B08C31EB30FF200C1A713 /* YFRefresh+UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YFRefresh+UIScrollView.swift"; sourceTree = "<group>"; };
 		3C18D5831EB857D600B79F3C /* UIView+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Size.swift"; sourceTree = "<group>"; };
 		3C18D5851EB85BF400B79F3C /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		3C2B49471EBC5D9700103963 /* BaseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLayer.swift; sourceTree = "<group>"; };
 		3C43D73B1EBB09DB00D2B3C8 /* ArrowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowLayer.swift; sourceTree = "<group>"; };
 		3C7CD6691EBB29DB00F3AB21 /* CircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleLayer.swift; path = ../CircleLayer.swift; sourceTree = "<group>"; };
 		3C7CD66B1EBC4EE200F3AB21 /* CheckLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckLayer.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				3C43D73B1EBB09DB00D2B3C8 /* ArrowLayer.swift */,
 				3C7CD6691EBB29DB00F3AB21 /* CircleLayer.swift */,
 				3C7CD66B1EBC4EE200F3AB21 /* CheckLayer.swift */,
+				3C2B49471EBC5D9700103963 /* BaseLayer.swift */,
 			);
 			path = YFRefresh;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				3C0B08921EB2DBDE00C1A713 /* ViewController.swift in Sources */,
 				3C18D5861EB85BF400B79F3C /* Size.swift in Sources */,
 				3C7CD66C1EBC4EE200F3AB21 /* CheckLayer.swift in Sources */,
+				3C2B49481EBC5D9700103963 /* BaseLayer.swift in Sources */,
 				3C0B08901EB2DBDE00C1A713 /* AppDelegate.swift in Sources */,
 				3C43D73C1EBB09DB00D2B3C8 /* ArrowLayer.swift in Sources */,
 				3C7CD66A1EBB29DB00F3AB21 /* CircleLayer.swift in Sources */,

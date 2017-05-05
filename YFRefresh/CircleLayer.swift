@@ -20,23 +20,18 @@ class CircleLayer: CALayer {
     var pointBack = CALayer()
     
     
+    
+    
     init(frame: CGRect) {
-//        pointBack.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         super.init()
         self.frame      = frame
         backgroundColor = UIColor.clear.cgColor
         pointBack.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         
         pointBack.backgroundColor = UIColor.clear.cgColor
-//        anchorPoint = CGPoint(x: 1, y: 1)
-//        pointBack.backgroundColor = UIColor.clear.cgColor
-        
         initPoint()
         initCircle()
         addSublayer(pointBack)
-//        addSublayer(pointBack)
-//        drawPoint()
-//        addCheckLayer()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,7 +50,7 @@ class CircleLayer: CALayer {
         circle.lineWidth = 2
         circle.lineCap = kCALineCapRound
         addSublayer(circle)
-        circle.isHidden = false
+        circle.isHidden = true
     }
     
     ///绘制圆点
@@ -71,11 +66,13 @@ class CircleLayer: CALayer {
         point.lineWidth = 2
         point.lineCap = kCALineCapRound
         pointBack.addSublayer(point)
-        pointAnimation()
+        pointBack.isHidden = true
     }
     
     ///圆点旋转的动画
     func pointAnimation() {
+        circle.isHidden = false
+        pointBack.isHidden = false
         let ani = CABasicAnimation(keyPath: "transform.rotation")
         ani.toValue = CGFloat.pi * 2
         ani.fromValue = 0
@@ -83,5 +80,18 @@ class CircleLayer: CALayer {
         ani.repeatCount = MAXFLOAT
         ani.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         pointBack.add(ani, forKey: "transform.rotation")
+    }
+    
+    /// 结束动画
+    func stopPointAnimation() {
+        pointBack.isHidden = true
+        pointBack.removeAllAnimations()
+    }
+    
+    func recoverLayer() {
+        pointBack.isHidden = true
+        pointBack.removeAllAnimations()
+        circle.isHidden = true
+        circle.removeAllAnimations()
     }
 }

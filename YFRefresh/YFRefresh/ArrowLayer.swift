@@ -16,6 +16,7 @@ class ArrowLayer: CALayer{
     var arrowLayer: CAShapeLayer?
     var color: UIColor?
     var lineWidth: CGFloat
+    var completionAnimation: (() -> ())?
     
     
     
@@ -112,6 +113,13 @@ class ArrowLayer: CALayer{
         verticalLineLayer?.add(start, forKey: "strokeStart")
         verticalLineLayer?.add(end, forKey: "strokeEnd")
     }
+    
+    func endAnimation() {
+        verticalLineLayer?.isHidden = false
+        arrowLayer?.isHidden = false
+        verticalLineLayer?.removeAllAnimations()
+        arrowLayer?.removeAllAnimations()
+    }
 }
 
 //MARK: 动画结束
@@ -124,7 +132,7 @@ extension ArrowLayer: CAAnimationDelegate {
                 lineAnimation()
             } else {//所有动画结束
                 verticalLineLayer?.isHidden = true
-                
+                completionAnimation?()
             }
         }
     }

@@ -46,7 +46,7 @@ class YFRefreshHeader: UIView {
     
     var scrollView: UIScrollView? = nil
     
-    var fastLayer: ArrowLayer?
+    var baseLayer: BaseLayer?
     
     
     ///结束刷新
@@ -58,11 +58,7 @@ class YFRefreshHeader: UIView {
         state = .Refreshing
     }
     
-    var label: UILabel? = {
-        let label = UILabel(frame: CGRect(x: 30, y: -50, width: 100, height: 40))
-        label.text = "你好"
-        return label
-    }()
+   
     
     convenience init(target: Any, action:Selector) {
         self.init(frame: .zero)
@@ -159,27 +155,25 @@ extension YFRefreshHeader {
     fileprivate func setUI() {
         let width = UIScreen.main.bounds.size.width
         let height:CGFloat = -64
-        fastLayer = ArrowLayer(frame: .init(x: width/2 - 14, y: height/2 - 14, width: 28, height: 28))
-        layer.addSublayer(fastLayer!)
-        let circleLayer = CircleLayer(frame: .init(x: width/2 - 14, y: height/2 - 14, width: 28, height: 28))
-        layer.addSublayer(circleLayer)
-        
-//        addSubview(label!)
+        baseLayer = BaseLayer(frame: .init(x: width/2 - 14, y: height/2 - 14, width: 28, height: 28))
+        layer.addSublayer(baseLayer!)
     }
     fileprivate func setState(_ state: YFRefreshHeaderState) {
         switch state {
-        case .WillRefresh:
-            label?.text = "松开刷新"
+        case .WillRefresh: break
+            
+            
         case .Refreshing:
-            label?.text = "正在刷新..."
+
             scrollView?.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
-            fastLayer?.startAnimation()
+            baseLayer?.startRefresh()
             actionBlock!()
-        case .Pulling:
-            label?.text = "正在下拉"
+        case .Pulling: break
+
         default:
-            label?.text = "正常状态"
-            scrollView?.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            baseLayer?.stopRefresh({ 
+                self.scrollView?.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            })
         }
     }
 }
